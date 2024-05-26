@@ -11,15 +11,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return const   Scaffold(
       backgroundColor:  Color.fromARGB(255, 14, 15, 15),
       body:  Column(
-        children:  <Widget>[
-          HeaderWidget(),
-          ListaPersonajes()
-        ]
+        children:   <Widget>[
+           HeaderWidget(),
+             ListaPersonajes()
+        ],
         
       ),
+
+   
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onepiece/src/pages/detail_page.dart';
 class ListaPersonajes extends StatefulWidget {
   const ListaPersonajes({super.key});
   
@@ -44,42 +45,61 @@ class _ListaPersonajesState extends State<ListaPersonajes> {
           const SizedBox(
             height: 20,
           ),
-          bloquePersonajes("nombre", 0xff4db2ba, "o2")
+          bloquePersonajes("Brooke", 0xff4d22d0, "o1"),
+          bloquePersonajes("Luffy", 0xfff93c2a, "o2"),
+          bloquePersonajes("Ace", 0xffe99420, "o3"),
+          bloquePersonajes("Boa", 0xffff45a4, "o4"),
+          bloquePersonajes("Hancook", 0xffa4284c, "o5"),
+          bloquePersonajes("Zoro", 0xff22c45f, "o6")
         ],
       ),
     );
   }
       Widget bloquePersonajes(String nombre, int color, String imagen){
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: const Color(0xFF272727),
-          ),
-          height: 65,
-          child: Row(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 7,
-                      offset: const Offset(0,1),
-                      spreadRadius: 0,
-                      blurStyle: BlurStyle.normal,
-                      color: Color(color),
-                    )
-                  ],                  
-                  borderRadius: BorderRadius.circular(20),
+        return GestureDetector(
+          onTap: ()=>{
+            Navigator.of(context).push(MaterialPageRoute(builder: ( (context)=>
+            DetailPage()))),
+          },
+          child: Container(
+            margin: const EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: const Color(0xFF272727),
+            ),
+            height: 65,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 5,
+                            offset: const Offset(0,1),
+                            spreadRadius: 0,
+                            blurStyle: BlurStyle.normal,
+                            color: Color(color),
+                          )
+                        ],                  
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: const EdgeInsets.all(8),
+                      child: Image.asset("assets/$imagen.png"),
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Text(nombre,style: const TextStyle(fontSize: 16, color: Colors.white),)
+                
+                  ],
                 ),
-                padding: const EdgeInsets.all(8),
-                child: Image.asset("assets/$imagen.png"),
-              ),
-              const SizedBox(
-                width: 12,
-              ),
-              Text(nombre,style: const TextStyle(fontSize: 16, color: Colors.white),)
-
-            ],
+                IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert_rounded,color: Colors.grey,))
+              ],
+            ),
           ),
         );
       }
