@@ -25,15 +25,25 @@ class _ListaPersonajesState extends State<ListaPersonajes> {
         padding:  const EdgeInsets.all(25),
         children: [
           Text("Portadas", style: tituloStyleText,),
+          const SizedBox(
+            height: 15,
+          ),
           Row(
             children: [
-              bloquesPortada("p1.jpg","titulo","subtitulo"),
+              bloquesPortada("p1.jpg","titulo: ","2018"),
               SizedBox(width: widthpantalla*0.03),
-               bloquesPortada("p2.jpg","titulo","subtitulo"),
+               bloquesPortada("p2.jpg","titulo","2020"),
                SizedBox(width: widthpantalla*0.03),
-                bloquesPortada("p3.jpg","titulo","subtitulo")
+                bloquesPortada("p3.jpg","titulo","2022")
             ],
           ),
+          const Divider(
+            thickness: 2,
+            color: Colors.red,
+          ),
+          const SizedBox(
+            height: 20,
+          )
         ],
       ),
     );
@@ -47,6 +57,14 @@ class _ListaPersonajesState extends State<ListaPersonajes> {
           child: Image.asset("assets/$image", width: widthpantalla*0.31, fit:BoxFit.cover),
          ),
           const SizedBox(height: 10),
+          RichText(text: TextSpan(
+            text: titulo,style: const TextStyle(color: Colors.white70,fontSize: 14),
+            children: [
+              TextSpan(
+                text: subtitulo,style: const TextStyle(color: Colors.grey,fontWeight: FontWeight.w300,fontSize: 12)
+              )
+            ]
+          ))
       ],
     );
   }
