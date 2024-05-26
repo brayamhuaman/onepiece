@@ -9,6 +9,7 @@ class ListaPersonajes extends StatefulWidget {
 }
 
 class _ListaPersonajesState extends State<ListaPersonajes> {
+  double widthpantalla = 0;
   final tituloStyleText = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
@@ -18,13 +19,19 @@ class _ListaPersonajesState extends State<ListaPersonajes> {
 
   @override
   Widget build(BuildContext context) {
+    widthpantalla = MediaQuery.of(context).size.width-50;
     return Expanded(
       child: ListView(
+        padding:  const EdgeInsets.all(25),
         children: [
           Text("Portadas", style: tituloStyleText,),
           Row(
             children: [
-              bloquesPortada("p1.jpg","titulo","subtitulo")
+              bloquesPortada("p1.jpg","titulo","subtitulo"),
+              SizedBox(width: widthpantalla*0.03),
+               bloquesPortada("p2.jpg","titulo","subtitulo"),
+               SizedBox(width: widthpantalla*0.03),
+                bloquesPortada("p3.jpg","titulo","subtitulo")
             ],
           ),
         ],
@@ -37,9 +44,9 @@ class _ListaPersonajesState extends State<ListaPersonajes> {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(18),
-          child: Image.asset("assets/$image"),
-
-        )
+          child: Image.asset("assets/$image", width: widthpantalla*0.31, fit:BoxFit.cover),
+         ),
+          const SizedBox(height: 10),
       ],
     );
   }
