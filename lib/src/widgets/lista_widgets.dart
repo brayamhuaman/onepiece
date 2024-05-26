@@ -39,15 +39,52 @@ class _ListaPersonajesState extends State<ListaPersonajes> {
           ),
           const Divider(
             thickness: 2,
-            color: Colors.red,
+            color: Colors.green,
           ),
           const SizedBox(
             height: 20,
-          )
+          ),
+          bloquePersonajes("nombre", 0xff4db2ba, "o2")
         ],
       ),
     );
   }
+      Widget bloquePersonajes(String nombre, int color, String imagen){
+        return Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: const Color(0xFF272727),
+          ),
+          height: 65,
+          child: Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 7,
+                      offset: const Offset(0,1),
+                      spreadRadius: 0,
+                      blurStyle: BlurStyle.normal,
+                      color: Color(color),
+                    )
+                  ],                  
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.all(8),
+                child: Image.asset("assets/$imagen.png"),
+              ),
+              const SizedBox(
+                width: 12,
+              ),
+              Text(nombre,style: const TextStyle(fontSize: 16, color: Colors.white),)
+
+            ],
+          ),
+        );
+      }
+
+
 
   Column bloquesPortada(String image, String titulo, String subtitulo){
     return Column(
