@@ -20,7 +20,7 @@ class HeaderWidget extends StatelessWidget {
       padding: const EdgeInsets.all(25.0),
       height: 170.0,
       decoration: const BoxDecoration(
-        color:Colors.lightGreen,
+        color:Colors.black,
       ),
       child: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
