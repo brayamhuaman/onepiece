@@ -58,8 +58,9 @@ class _ListaPersonajesState extends State<ListaPersonajes> {
       Widget bloquePersonajes(String nombre, int color, String imagen){
         return GestureDetector(
           onTap: ()=>{
-            Navigator.of(context).push(MaterialPageRoute(builder: ( (context)=>
-            DetailPage()))),
+            Navigator.of(context).push(MaterialPageRoute
+            (builder:  (context)=> DetailPage(color: 
+            color,image: "assets/$imagen.png",nombre: nombre,))),
           },
           child: Container(
             margin: const EdgeInsets.only(bottom: 20),
