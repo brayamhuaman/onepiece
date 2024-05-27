@@ -99,31 +99,30 @@ class _DetailPageState extends State<DetailPage> {
           ),
           const SizedBox(height: 20),
           const Spacer(),
-          FadeAnimation(
-            intervalStart: 0.5,
-          
-            child: GestureDetector(
-              onTap: ()=> (Navigator.pop(context)),
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                alignment: Alignment.center,
-                margin: const EdgeInsets.symmetric(horizontal: 8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Color(widget.color),
+           FadeAnimation(
+                intervalStart: 0.5,
+                child: GestureDetector(
+                  onTap: () => {Navigator.pop(context)},
+                  child: Container(
+                    width: double.infinity,
+                    height: 50,
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color(widget.color)),
+                    child: const Text(
+                      "Volver",
+                      style: TextStyle(
+                          color: Colors.white60,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
                 ),
-                child: const Text("Volver",style: TextStyle(
-                  color: Colors.white60,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold
-                ),),
               ),
             ),
           )
         ],
        ),
-      ),
-    );
+      ));  
   }
 }
