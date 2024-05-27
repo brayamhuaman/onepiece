@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onepiece/src/widgets/blur_container.dart';
+import 'package:onepiece/src/widgets/infotititle-widget.dart';
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key,required this.color,required this.image,required this.nombre});
 
@@ -48,7 +49,30 @@ class DetailPage extends StatelessWidget {
               ),),
               ) ))
             ],
-          )
+          ),
+          const SizedBox(height: 30,),
+           Padding(padding:  EdgeInsets.symmetric(horizontal: 8),
+          child: Text(
+            "$nombre #personaje", style: const TextStyle(
+              color: Colors.white,
+              fontSize: 22,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          ),
+          const SizedBox(height: 5),
+          const Padding(padding: EdgeInsets.symmetric(horizontal: 8),
+          child: Text("One Piece",style: TextStyle(color: Colors.white70),),),
+
+          const SizedBox(height: 50),
+          const Padding(padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InfoTitle(title: "Eichiro Oda", subtitle: "Creador"),
+              InfoTitle(title: "Japón", subtitle: "Pais")
+            ],
+          ),)
         ],
        ),
       ),
