@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:onepiece/src/pages/detail_page.dart';
 class ListaPersonajes extends StatefulWidget {
@@ -58,7 +59,7 @@ class _ListaPersonajesState extends State<ListaPersonajes> {
       Widget bloquePersonajes(String nombre, int color, String imagen){
         return GestureDetector(
           onTap: ()=>{
-            Navigator.of(context).push(MaterialPageRoute
+            Navigator.of(context).push(CupertinoPageRoute
             (builder:  (context)=> DetailPage(color: 
             color,image: "assets/$imagen.png",nombre: nombre,))),
           },
@@ -89,7 +90,7 @@ class _ListaPersonajesState extends State<ListaPersonajes> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       padding: const EdgeInsets.all(8),
-                      child: Image.asset("assets/$imagen.png"),
+                      child: Hero(tag: color,child: Image.asset("assets/$imagen.png")),
                     ),
                     const SizedBox(
                       width: 12,
