@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onepiece/src/animations/fade_animation.dart';
 import 'package:onepiece/src/widgets/blur_container.dart';
 import 'package:onepiece/src/widgets/infotititle-widget.dart';
 class DetailPage extends StatefulWidget {
@@ -21,6 +22,7 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
+        padding: const EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -44,62 +46,80 @@ class _DetailPageState extends State<DetailPage> {
               Positioned(
                 bottom: 10,
                 left: 10,
-                child: BlurContainer(child: Container(
-                width: 160,
-                height: 50,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white.withOpacity(0.1),
-              ),
-              child: Text(widget.nombre,style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Colors.white
-              ),),
-              ) ))
+                child: FadeAnimation(
+                  intervalStart: 0.8,
+                  child: BlurContainer(child: Container(
+                  width: 160,
+                  height: 50,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white.withOpacity(0.1),
+                                ),
+                                child: Text(widget.nombre,style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.white
+                                ),),
+                                ) ),
+                ))
             ],
           ),
           const SizedBox(height: 30,),
            Padding(padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Text(
-            "${widget.nombre} #personaje", style: const TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-              fontWeight: FontWeight.bold
+          child: FadeAnimation(
+            intervalStart: 0.3,
+            child: Text(
+              "${widget.nombre} #Personaje", style: const TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold
+              ),
             ),
           ),
           ),
           const SizedBox(height: 5),
           const Padding(padding: EdgeInsets.symmetric(horizontal: 8),
-          child: Text("One Piece",style: TextStyle(color: Colors.white70),),),
+          child: FadeAnimation(
+            intervalStart: 0.35,
+            child: Text("One Piece",style: TextStyle(color: Colors.white70),)),),
 
           const SizedBox(height: 50),
           const Padding(padding:  EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InfoTitle(title: "Eichiro Oda", subtitle: "Creador"),
-              InfoTitle(title: "Japón", subtitle: "Pais")
-            ],
+          child: FadeAnimation(
+            intervalStart: 0.4,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InfoTitle(title: "Eichiro Oda", subtitle: "Creador"),
+                InfoTitle(title: "Japón", subtitle: "Pais")
+              ],
+            ),
           ),
           ),
           const SizedBox(height: 20),
           const Spacer(),
-          Container(
-            width: double.infinity,
-            height: 50,
-            alignment: Alignment.center,
-            margin: const EdgeInsets.symmetric(horizontal: 8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Color(widget.color),
+          FadeAnimation(
+            intervalStart: 0.5,
+          
+            child: GestureDetector(
+              onTap: ()=> (Navigator.pop(context)),
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                alignment: Alignment.center,
+                margin: const EdgeInsets.symmetric(horizontal: 8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(widget.color),
+                ),
+                child: const Text("Volver",style: TextStyle(
+                  color: Colors.white60,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold
+                ),),
+              ),
             ),
-            child: const Text("Volver",style: TextStyle(
-              color: Colors.white60,
-              fontSize: 16,
-              fontWeight: FontWeight.bold
-            ),),
           )
         ],
        ),
